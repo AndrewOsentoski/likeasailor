@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Like a Sailor</title>
+ 
+    
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/signup.css" rel="stylesheet">
+    
+  </head>
+ 
+  <body>
+ 
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" ><a href="home">Home</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Like a Sailor</h3>
+      </div>
+ 
+      <div class="jumbotron">
+		<h1>Fuck Swear Words</h1>
+		<form action="/songList" method="post" enctype="multipart/form-data">
+							 <input type="file" name="data_file" />
+							 <input type="submit" />
+						 </form>		
+      </div>
+		<div class="row marketing">
+		<div class="col-lg-20">
+
+			<h2>Export iTunes Playlist</h2>
+			<p>Open iTunes and navigate to your playlist, making sure that it is selected on the left hand pane.
+			<br><br>Press the <b>alt</b> key on your keyboard, and select <b>File</b> from the top toolbar. 
+			<br><br>Select <b>Library > Export Playlist...</b> from the menu, then save the exported file somewhere you'll be able to find it as a <b>.txt</b> file. 
+			<br><br>Now, just hit the <b>Choose File</b> button in your browser, browse to your file, press <b>Open</b>, and hit <b>Submit</b>!</p>
+		</div>
+	</div>
+       
+ 
+      <footer class="footer">
+        <p>&copy; Andrew Osentoski 2015</p>
+      </footer>
+ 
+    </div>
+  </body>
+</html>
