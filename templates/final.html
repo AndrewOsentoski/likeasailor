@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Like A Sailore</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Songs</h2>
+  <p>Green means that a perfect match was found, and that the song does not swear. Red means either a perfect match was not found or
+  that the song swears, or both!</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Song</th>
+        <th>Artist</th>
+        <th>Swears</th>
+		<th>Perfect Match</th>
+      </tr>
+    </thead>
+    <tbody>
+	{% for item in result %}
+		{% for x in item %}
+			{% if x == "! Danger Dog" %}
+				<tr class = "danger">
+			{% elif x == "OK Success Dog" %}
+				<tr class = "success">
+			{% endif %}
+		{% endfor %}
+		{% for x in item %}
+			{% if x != "! Danger Dog" and x != "OK Success Dog" %}
+				<td>{{ x }}</td>
+			{% endif %}
+		{% endfor %}
+		</tr>
+	{% endfor %}
+      
+      
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
