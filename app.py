@@ -5,7 +5,6 @@ import urllib.request
 import json
 from bs4 import BeautifulSoup
 import pandas as pd
-import rauth
 import base64
 import requests
 import re
@@ -237,12 +236,13 @@ def spotifysonglist():
 		except:
 			pass
 	for item in songList:
-		indDict = item.toDict()
-		finalList.append(indDict)
-	wantedCols = ["Artist","Song","Swears","Perfect Match"]
-	toHTML = pd.DataFrame(finalList, index = range(0, len(songList)))
-	toHTML = toHTML[wantedCols].to_html(justify="left")
-	return toHTML
+		if item.swears or not item.perfectmatch:
+			format = "! Danger Dog"
+		else:
+			format = "OK Success Dog"
+		indList = [item.name, item.artist, item.swears, item.perfectmatch, format]
+		finalList.append(indList)
+	return render_template('final.html', result = finalList)
 
 
 
@@ -262,12 +262,13 @@ def songList():
 	for item in length:
 		songList.append(Song(tionary['Name'][item], tionary['Artist'][item]))
 	for item in songList:
-		indDict = item.toDict()
-		finalList.append(indDict)
-	wantedCols = ["Artist","Song","Swears","Perfect Match"]
-	toHTML = pd.DataFrame(finalList, index = range(0, len(songList)))
-	toHTML = toHTML[wantedCols].to_html(justify="left")
-	return toHTML
+		if item.swears or not item.perfectmatch:
+			format = "! Danger Dog"
+		else:
+			format = "OK Success Dog"
+		indList = [item.name, item.artist, item.swears, item.perfectmatch, format]
+		finalList.append(indList)
+	return render_template('final.html', result = finalList)
 	
 app.debug = True
 
